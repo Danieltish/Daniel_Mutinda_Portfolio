@@ -1,10 +1,10 @@
 "use client";
 
 import { ChakraProps, Icon } from "@chakra-ui/react";
-import { FiPhoneCall } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 const CallbackIcon = (props: ChakraProps) => {
-  return <Icon as={FiPhoneCall} {...props} />;
+  return <Icon as={FaWhatsapp} {...props} />;
 };
 
 export default CallbackIcon;

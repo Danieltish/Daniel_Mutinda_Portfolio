@@ -1,7 +1,17 @@
 import { marginX } from "@/utils/constants";
-import { Box, Flex, Heading, SimpleGrid, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  SimpleGrid,
+  Stack,
+  Text,
+  Link,
+} from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
+import { FaDownload } from "react-icons/fa6";
 
 const Hero = () => {
   return (
@@ -35,14 +45,29 @@ const Hero = () => {
           <Heading fontSize={{ base: "2rem", md: "4.5rem" }}>
             Hello, I&apos;m{" "}
             <Box as="span" color="primary">
-              Daniel Mutinda
+              Mutinda
             </Box>
           </Heading>
           <Text fontSize="2xl">
             A creative Software Developer with expertise in building responsive,
-            high-performance and secure applications. My happiness comes
-            from solving realworld problems using technology.
+            high-performance, secure, feature-rich, custom applications. My happiness comes from
+            solving realworld problems prefarably with technology.
           </Text>
+          <Link
+          href="https://drive.google.com/file/d/1bz0tj8ZfaLl_x-NLipSPR2iEpHUbyRhy/view?usp=drive_link"
+          isExternal
+          >
+          <Button
+            w="fit-content"
+            size="lg"
+            variant="outline"
+            colorScheme="white"
+            borderRadius="xl"
+            rightIcon={<FaDownload />}
+          >
+            Check Resume{" "}
+          </Button>
+          </Link>
         </Stack>
 
         <Stack overflow="hidden" alignSelf="end">

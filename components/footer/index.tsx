@@ -1,5 +1,11 @@
 import { marginX } from "@/utils/constants";
-import { InstagramIcon, MailIcon, PhoneIcon, XIcon } from "@/utils/icons";
+import {
+  InstagramIcon,
+  MailIcon,
+  PhoneIcon,
+  XIcon,
+  YoutubeIcon,
+} from "@/utils/icons";
 import { Box, Flex, Stack } from "@chakra-ui/react";
 
 const Footer = () => {
@@ -36,23 +42,28 @@ export default Footer;
 
 const socials = [
   {
+    name: "WhatsApp",
+    icon: PhoneIcon,
+    href: "https://wa.link/sdyxpv",
+  },
+  {
+    name: "Linkein",
+    icon: MailIcon,
+    href: "https://www.linkedin.com/in/daniel-mutinda-3a5851182/",
+  },
+  {
     name: "Instagram",
     icon: InstagramIcon,
     href: "https://www.instagram.com/danielmutindadev/",
   },
   {
+    name: "Github",
+    icon: YoutubeIcon,
+    href: "https://github.com/Danieltish/",
+  },
+  {
     name: "Twitter",
     icon: XIcon,
     href: "https://x.com/TitusTish",
-  },
-  {
-    name: "Call",
-    icon: PhoneIcon,
-    href: "tel:+254717376964",
-  },
-  {
-    name: "Email",
-    icon: MailIcon,
-    href: "mailto:danieltmutinda@gmail.com",
   },
 ];

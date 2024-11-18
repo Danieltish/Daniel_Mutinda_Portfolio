@@ -1,10 +1,10 @@
 "use client";
 
 import { ChakraProps, Icon } from "@chakra-ui/react";
-import { IoMail } from "react-icons/io5";
+import { IoLogoLinkedin } from "react-icons/io5";
 
-const MailIcon = (props: ChakraProps) => {
-  return <Icon as={IoMail} {...props} />;
+const LinkedInIcon = (props: ChakraProps) => {
+  return <Icon as={IoLogoLinkedin} {...props} />;
 };
 
-export default MailIcon;
+export default LinkedInIcon;

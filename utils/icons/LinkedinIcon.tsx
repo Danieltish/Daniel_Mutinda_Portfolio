@@ -1,10 +1,10 @@
 "use client";
 
 import { ChakraProps, Icon } from "@chakra-ui/react";
-import { FaLinkedinIn } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
 
 const LinkedinIcon = (props: ChakraProps) => {
-  return <Icon as={FaLinkedinIn} {...props} />;
+  return <Icon as={FaLinkedin} {...props} />;
 };
 
 export default LinkedinIcon;

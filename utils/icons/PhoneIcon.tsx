@@ -1,10 +1,10 @@
 "use client";
 
 import { ChakraProps, Icon } from "@chakra-ui/react";
-import { FaPhone } from "react-icons/fa6";
+import { IoLogoWhatsapp } from "react-icons/io";
 
-const PhoneIcon = (props: ChakraProps) => {
-  return <Icon as={FaPhone} {...props} />;
+const WhatsappIcon = (props: ChakraProps) => {
+  return <Icon as={IoLogoWhatsapp} {...props} />;
 };
 
-export default PhoneIcon;
+export default WhatsappIcon;

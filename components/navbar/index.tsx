@@ -4,7 +4,7 @@ import { LuArrowRight } from "react-icons/lu";
 
 const Navbar = () => {
   return (
-    <Box bg="brand.black" py="1.2rem">
+    <Box bg="brand.black" py="1.2rem" position="sticky" top="0" zIndex="1000">
       <Flex
         mx={marginX}
         as="nav"
@@ -13,7 +13,7 @@ const Navbar = () => {
         justify="space-between"
       >
         <Heading fontSize="2xl" color="primary" fontFamily="mono">
-          +254717376964
+          Daniel Mutinda
         </Heading>
 
         <Flex gap={4} hideBelow="md">
@@ -40,7 +40,7 @@ const Navbar = () => {
           borderRadius="xl"
           rightIcon={<LuArrowRight />}
         >
-          Hire Mutinda
+          Contact me
         </Button>
       </Flex>
     </Box>
