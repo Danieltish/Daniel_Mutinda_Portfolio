@@ -1,87 +1,98 @@
-import { marginX } from "@/utils/constants";
+"use client";
 import {
   Box,
-  Button,
   Flex,
   Heading,
   SimpleGrid,
   Stack,
-  Text,
-  Link,
+  Text
 } from "@chakra-ui/react";
-import Image from "next/image";
-import React from "react";
-import { FaDownload } from "react-icons/fa6";
+import React, { useState, useEffect } from "react";
+import Image from "next/image"; // To include your picture
+
+const roles = [
+  "Web Developer",
+  "Mobile Developer",
+  "UI/UX Designer",
+  "SEO Expert",
+  "Entrepreneur",
+  "Data Analyst",
+  "ML Engineer",
+  "Photo Editor",
+  "API Developer",
+  "Brand Promoter",
+  "Technical Writer",
+  "Book Lover",
+  "Deep Worker"
+];
 
 const Hero = () => {
+  const [currentRole, setCurrentRole] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const typingSpeed = 50; // Typing speed in milliseconds
+  const deletingSpeed = 20; // Deleting speed in milliseconds
+  const pauseDuration = 1200; // Pause before deleting
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const fullText = roles[currentRole];
+      if (!isDeleting) {
+        setDisplayedText((prev) => fullText.substring(0, prev.length + 1));
+        if (displayedText === fullText) {
+          setTimeout(() => setIsDeleting(true), pauseDuration);
+        }
+      } else {
+        setDisplayedText((prev) => fullText.substring(0, prev.length - 1));
+        if (displayedText === "") {
+          setIsDeleting(false);
+          setCurrentRole((prev) => (prev + 1) % roles.length);
+        }
+      }
+    };
+
+    const typingTimer = setTimeout(
+      handleTyping,
+      isDeleting ? deletingSpeed : typingSpeed
+    );
+
+    return () => clearTimeout(typingTimer);
+  }, [displayedText, isDeleting, currentRole]);
+
   return (
-    <Flex
-      bgImg="/hero-bg.jpg"
-      bgSize="cover"
-      h="90vh"
-      align="center"
-      justify="center"
-      pos="relative"
-      _before={{
-        content: '""',
-        bg: "rgba(0, 0, 0, 0.6)",
-        position: "absolute",
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-        zIndex: 1,
-      }}
-    >
+    <Flex className="bg-cover h-screen flex items-center justify-center relative bg-[url('/hero-bg.jpg')]">
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black opacity-60 z-0"></div>
+
+      {/* Content */}
       <SimpleGrid
-        zIndex={2}
-        mx={marginX}
-        h="100%"
-        alignItems="center"
+        className="z-10 w-full px-6 md:px-20 lg:px-32 text-white"
         columns={{ base: 1, md: 2 }}
-        gap={8}
+        spacing={8}
       >
-        <Stack color="brand.white" gap={4}>
-          <Heading fontSize={{ base: "2rem", md: "4.5rem" }}>
-            Hello, I&apos;m{" "}
-            <Box as="span" color="primary">
-              Mutinda
+        <Stack spacing={6} textAlign="center" className="mx-auto">
+          <Heading className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
+            I&apos;m <br />
+            <Box as="span" className="text-primary">
+              Daniel Mutinda
             </Box>
           </Heading>
-          <Text fontSize="2xl">
-            A creative Software Developer with expertise in building responsive,
-            high-performance, secure, feature-rich, custom applications. My happiness comes from
-            solving realworld problems prefarably with technology.
+          <Text className="text-2xl sm:text-3xl font-semibold h-12">
+            A{" "}
+            <Box as="span" className="text-primary">
+              {displayedText}
+            </Box>
           </Text>
-          <Link
-          href="https://drive.google.com/file/d/1bz0tj8ZfaLl_x-NLipSPR2iEpHUbyRhy/view?usp=drive_link"
-          isExternal
-          >
-          <Button
-            w="fit-content"
-            size="lg"
-            variant="outline"
-            colorScheme="white"
-            borderRadius="xl"
-            rightIcon={<FaDownload />}
-          >
-            Check Resume{" "}
-          </Button>
-          </Link>
         </Stack>
 
-        <Stack overflow="hidden" alignSelf="end">
+        {/* Image of Daniel Mutinda */}
+        <Stack className="overflow-hidden" alignSelf="end">
           <Image
-            src="/hero.webp"
+            src="/hero.webp" // Your image path
             alt="Hero"
             width={500}
             height={500}
-            style={{
-              width: "100%",
-              height: "80%",
-              marginBottom: "-40%",
-              objectFit: "contain",
-            }}
+            className="object-cover rounded-full shadow-lg mx-auto md:w-[600px] lg:w-[700px]"
           />
         </Stack>
       </SimpleGrid>
