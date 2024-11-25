@@ -26,5 +26,13 @@ export const theme = extendTheme({
       800: "#882E0B",
       900: "#701F06",
     },
+    customOrange: {
+      50: "#f6e0cc", // lightest shade
+      100: "#f0b27a", // light shade
+      200: "#eb7d24", // main color
+      300: "#e5640f", // darker shade
+      400: "#cc520e", // even darker shade
+      500: "#b8410d", // darkest shade
+    },
   },
 });

@@ -6,13 +6,14 @@ import {
   Text,
   IconButton,
   VStack,
-  Image, // Import Image component
+  Image,
 } from "@chakra-ui/react";
 import { LuArrowRight, LuMenu, LuX } from "react-icons/lu"; // Import close icon
 import { useState, useEffect } from "react";
 
 const navItems = [
   { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
@@ -81,17 +82,31 @@ const Navbar = () => {
           ))}
         </Flex>
 
-        {/* Desktop Contact Button */}
-        <Button
-          colorScheme="primary"
-          as="a"
-          href="#contact"
-          borderRadius="xl"
-          rightIcon={<LuArrowRight />}
-          display={{ base: "none", md: "flex" }}
-        >
-          Contact me
-        </Button>
+        {/* Desktop Contact Button and Phone Number */}
+        <Flex align="center" display={{ base: "none", md: "flex" }} gap={4}>
+          {/* Phone Number */}
+          <Text
+            fontSize="lg"
+            fontWeight="600"
+            color="white"
+            _hover={{ color: "primary" }}
+            display="flex"
+            alignItems="center"
+          >
+            <span>+254717376964</span>
+          </Text>
+
+          {/* Contact Button */}
+          <Button
+            colorScheme="primary"
+            as="a"
+            href="#contact"
+            borderRadius="xl"
+            rightIcon={<LuArrowRight />}
+          >
+            Write Me
+          </Button>
+        </Flex>
 
         {/* Mobile Hamburger Menu Button */}
         <IconButton

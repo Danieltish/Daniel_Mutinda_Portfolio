@@ -1,42 +1,33 @@
 "use client";
-import {
-  Box,
-  Flex,
-  Heading,
-  SimpleGrid,
-  Stack,
-  Text
-} from "@chakra-ui/react";
+import { Box, Flex, Heading, SimpleGrid, Stack, Text } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
-import Image from "next/image"; // To include your picture
+import Image from "next/image"; // For including your picture
 
-const roles = [
+const roles: string[] = [
   "Web Developer",
   "Mobile Developer",
   "UI/UX Designer",
-  "SEO Expert",
-  "Entrepreneur",
   "Data Analyst",
   "ML Engineer",
   "Photo Editor",
-  "API Developer",
-  "Brand Promoter",
-  "Technical Writer",
-  "Book Lover",
-  "Deep Worker"
+  "Graphics Designer",
+  "Entrepreneur",
+  "Deep Worker",
 ];
 
-const Hero = () => {
-  const [currentRole, setCurrentRole] = useState(0);
-  const [displayedText, setDisplayedText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const typingSpeed = 50; // Typing speed in milliseconds
-  const deletingSpeed = 20; // Deleting speed in milliseconds
-  const pauseDuration = 1200; // Pause before deleting
+const Hero: React.FC = () => {
+  const [currentRole, setCurrentRole] = useState<number>(0);
+  const [displayedText, setDisplayedText] = useState<string>(roles[0]); // Display the first role immediately
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
+
+  const typingSpeed: number = 50; // Typing speed in milliseconds
+  const deletingSpeed: number = 20; // Deleting speed in milliseconds
+  const pauseDuration: number = 1000; // Pause before deleting
 
   useEffect(() => {
     const handleTyping = () => {
-      const fullText = roles[currentRole];
+      const fullText: string = roles[currentRole];
+
       if (!isDeleting) {
         setDisplayedText((prev) => fullText.substring(0, prev.length + 1));
         if (displayedText === fullText) {

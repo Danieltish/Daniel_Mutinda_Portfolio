@@ -51,9 +51,9 @@ export default Services;
 
 const servicesData = [
   {
-    title: "Back-end-Web Development",
+    title: "Web Development",
     description:
-      "I create custom build server side web applications using technologies like next.js or ASP.Net core and databases such as MongoDB or SQL",
+      "I create custom build server and client side web applications using technologies like next.js or ASP.Net core and databases such as MongoDB or SQL",
     icon: "/development.webp",
   },
   {

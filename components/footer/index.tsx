@@ -6,13 +6,14 @@ import {
   XIcon,
   YoutubeIcon,
 } from "@/utils/icons";
-import { Box, Flex, Stack } from "@chakra-ui/react";
+import { Box, Flex, Stack, Text } from "@chakra-ui/react";
 
 const Footer = () => {
   return (
     <Box borderTop="2px solid gray" bg="brand.black">
       <Stack gap={3} mx={marginX} py="2rem" align="center">
-        <Flex gap={4}>
+        {/* Social Media Icons */}
+        <Flex gap={4} justify="center">
           {socials.map((s, i) => (
             <Stack
               as="a"
@@ -30,6 +31,21 @@ const Footer = () => {
             </Stack>
           ))}
         </Flex>
+
+        {/* Phone Number */}
+        <Flex direction="column" align="center" color="brand.white" gap={1}>
+          <Text fontSize="lg" fontWeight="600">
+            <a
+              href="tel:+254717376964"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              +254 717 376 964
+            </a>
+          </Text>
+          <Text fontSize="sm">Call or WhatsApp</Text>
+        </Flex>
+
+        {/* Copyright */}
         <Flex color="brand.white">
           &copy; 2024 danielmutinda. All rights reserved.
         </Flex>
@@ -47,7 +63,7 @@ const socials = [
     href: "https://wa.link/sdyxpv",
   },
   {
-    name: "Linkein",
+    name: "LinkedIn",
     icon: MailIcon,
     href: "https://www.linkedin.com/in/daniel-mutinda-3a5851182/",
   },
